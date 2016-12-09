@@ -20,4 +20,22 @@ class FibonacciTest extends GroovyTestCase {
             assertEquals(fib10[i], fib10Expected[i])
         }
     }
+
+    @Test
+    void testGetTermsLowerThan() {
+        Fibonacci fibonacci = new Fibonacci()
+
+        int[] fib3 = fibonacci.getTermsLowerThan(3).toArray() as int[]
+        int[] fib3Expected = [1, 1, 2] as int[]
+        for (int i = 0; i < fib3.length; i++) {
+
+            assertEquals(fib3[i], fib3Expected[i])
+        }
+
+        int[] fib60 = fibonacci.getTermsLowerThan(60).toArray() as int[]
+        int[] fib60Expected = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55] as int[]
+        for (int i = 0; i < fib60.length; i++) {
+            assertEquals(fib60[i], fib60Expected[i])
+        }
+    }
 }
