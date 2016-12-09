@@ -37,14 +37,14 @@ public class Fibonacci {
         while (this.fibonacci.get(this.fibonacci.size()-1) < n) {
             this.generateNext();
         }
-        if (this.isLastElementGreaterThan(n)) {
+        if (this.isLastElementGreaterThanOrEqual(n)) {
             this.removeLastElement();
         }
         return this.fibonacci;
     }
 
-    private boolean isLastElementGreaterThan (int n) {
-        return this.fibonacci.get(this.fibonacci.size() - 1) > n;
+    private boolean isLastElementGreaterThanOrEqual (int n) {
+        return this.fibonacci.get(this.fibonacci.size() - 1) >= n;
     }
 
     private void removeLastElement () {
