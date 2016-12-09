@@ -57,7 +57,7 @@ public class Fibonacci {
     private void generateNext() {
         if (this.fibonacci.size() == 0) {
             this.fibonacci.add(1);
-            this.fibonacci.add(2);
+            this.fibonacci.add(1);
         } else {
             int next = this.fibonacci.get(this.fibonacci.size()-1) + this.fibonacci.get(this.fibonacci.size()-2);
             this.fibonacci.add(next);
