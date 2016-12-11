@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class Prime {
 
-    private ArrayList<Integer> primes;
+    private ArrayList<Long> primes;
 
-    public Prime () {
-        this.primes = new ArrayList<Integer>();
+    public Prime() {
+        this.primes = new ArrayList<Long>();
     }
 
-    private void init () {
+    private void init() {
         if (this.primes.size() == 0) {
-            this.primes.add(2);
+            this.primes.add(2L);
         }
     }
 
