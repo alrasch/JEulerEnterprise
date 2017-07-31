@@ -8,13 +8,6 @@ package problems;
  * Find the sum of all the multiples of 3 or 5 below 1000.
  */
 public class Problem1 {
-
-    public static void main(String[] args) {
-        Problem1 problem = new Problem1();
-        int solution = problem.solve();
-        System.out.println(solution);
-    }
-
     public int solve() {
         int sum = 0;
 

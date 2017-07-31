@@ -8,7 +8,7 @@ public class Problem3 {
         problem.solve();
     }
 
-    private void solve() {
+    public long solve() {
         Prime prime = new Prime();
 
         long solution = -1;
@@ -17,6 +17,6 @@ public class Problem3 {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(solution);
+        return solution;
     }
 }
