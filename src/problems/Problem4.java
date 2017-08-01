@@ -9,11 +9,6 @@ import string.*;
  * Find the largest palindrome made from the product of two 3-digit numbers.
  */
 public class Problem4 {
-    public static void main(String[] args){
-        Problem4 p4 = new Problem4();
-        System.out.println(p4.solve());
-    }
-
     public int solve() {
         TrivialProperties tp = new TrivialProperties();
         int high = 0;
