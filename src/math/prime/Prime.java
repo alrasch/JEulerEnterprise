@@ -70,7 +70,7 @@ public class Prime {
         return this.primes;
     }
 
-    public ArrayList<Long> getPrimeFactors(long n) throws Exception {
+    public long[] getUniquePrimeFactors(long n) throws Exception {
         ArrayList<Long> primeFactors = new ArrayList<>();
 
         if (n < 2) {
@@ -79,7 +79,7 @@ public class Prime {
 
         if (isPrime(n)) {
             primeFactors.add(n);
-            return primeFactors;
+            return primeFactors.stream().mapToLong(l -> l).toArray();
         }
 
         primes = this.getPrimesUpTo(n / 2 + 1);
@@ -90,7 +90,7 @@ public class Prime {
             }
         }
 
-        return primeFactors;
+        return primeFactors.stream().mapToLong(l -> l).toArray();
     }
 
     public long getSmallestPrimeFactor(long n) {
