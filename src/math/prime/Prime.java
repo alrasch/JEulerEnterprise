@@ -15,7 +15,7 @@ public class Prime {
         this.primes.add(2L);
     }
 
-    public boolean isPrime(long n) {
+    boolean isPrime(long n) {
         if (n == 1) {
             return false;
         }
@@ -40,7 +40,7 @@ public class Prime {
     /**
      * Generates the next prime in this.primes
      */
-    public void generateNext() {
+    private void generateNext() {
         if (this.primes.size() == 0) {
             this.primes.add(2L);
         }
