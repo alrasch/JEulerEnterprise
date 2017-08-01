@@ -90,4 +90,15 @@ public class PrimeTest {
             }
         }
     }
+
+    @Test
+    void testGetNthPrime() {
+        Prime prime = new Prime();
+        int[] indices = {1, 2, 3, 4, 5, 6, 10001};
+        long[] primes = {2L, 3L, 5L, 7L, 11L, 13L, 104743L};
+
+        for(int i = 0; i < indices.length; i++){
+            assertEquals(primes[i], prime.getNthPrime(indices[i]));
+        }
+    }
 }

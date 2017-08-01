@@ -60,6 +60,14 @@ public class Prime {
         this.primes.add(last);
     }
 
+    public long getNthPrime(int n) {
+        this.init();
+        while (this.primes.size() < n) {
+            this.generateNext();
+        }
+        return this.primes.get(this.primes.size()-1);
+    };
+
     public ArrayList<Long> getPrimesUpTo(long n) {
         this.init();
         while (this.primes.get(this.primes.size() - 1) < n) {
