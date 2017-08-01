@@ -62,7 +62,6 @@ public class PrimeTest {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
     }
 }
