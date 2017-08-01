@@ -2,9 +2,7 @@ package math.prime;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PrimeTest {
     @Test
@@ -60,6 +58,34 @@ public class PrimeTest {
             try {
                 assertEquals(primes[i], prime.getLargestPrimeFactor(numbers[i]));
             } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Test
+    void testGetUniquePrimeFactors() {
+        Prime prime = new Prime();
+        long[] numbers = {
+                2,
+                2*3,
+                2*2*3,
+                2*3*5,
+                5*7*11*11*13
+        };
+        long[][] primes = {
+                {2},
+                {2, 3},
+                {2, 3},
+                {2, 3, 5},
+                {5, 7, 11, 13}
+        };
+
+        for (int i = 0; i < numbers.length; i++) {
+            try {
+                long[] factors = prime.getUniquePrimeFactors(numbers[i]);
+                assertArrayEquals(primes[i], factors);
+            } catch (Exception e ) {
                 e.printStackTrace();
             }
         }
