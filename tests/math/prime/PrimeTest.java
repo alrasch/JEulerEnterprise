@@ -49,4 +49,20 @@ public class PrimeTest {
             assertEquals(primes[i], prime.getSmallestPrimeFactor(numbers[i]));
         }
     }
+
+    @Test
+    void testGetLargestPrimeFactor() {
+        Prime prime = new Prime();
+        long[] numbers = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1924712};
+        long[] primes = {2, 3, 2, 5, 3, 7, 2, 3, 5, 11, 3, 13, 7, 5, 2, 240589};
+
+        for (int i = 0; i < numbers.length; i++) {
+            try {
+                assertEquals(primes[i], prime.getLargestPrimeFactor(numbers[i]));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
 }
