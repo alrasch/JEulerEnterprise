@@ -61,16 +61,13 @@ public class Prime {
     }
 
     public ArrayList<Long> getPrimesUpTo(long n) {
-        this.generatePrimesUpTo(n);
-        return this.primes;
-    }
-
-    private void generatePrimesUpTo(long n) {
         this.init();
         while (this.primes.get(this.primes.size() - 1) < n) {
             this.generateNext();
         }
         this.primes.remove(this.primes.size() - 1);
+
+        return this.primes;
     }
 
     public ArrayList<Long> getPrimeFactors(long n) throws Exception {
@@ -85,9 +82,9 @@ public class Prime {
             return primeFactors;
         }
 
-        this.generatePrimesUpTo(n / 2 + 1);
+        primes = this.getPrimesUpTo(n / 2 + 1);
 
-        for (long prime : this.primes) {
+        for (long prime : primes) {
             if (n % prime == 0) {
                 primeFactors.add(prime);
             }
