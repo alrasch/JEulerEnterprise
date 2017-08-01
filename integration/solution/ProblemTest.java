@@ -23,4 +23,10 @@ class ProblemTest {
         int solution = 6857;
         assertEquals(solution, (new Problem3().solve()));
     }
+
+    @Test
+    void testSolution4() {
+        int solution = 906609;
+        assertEquals(solution, (new Problem4().solve()));
+    }
 }
