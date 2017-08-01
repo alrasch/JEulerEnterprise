@@ -29,4 +29,10 @@ class ProblemTest {
         int solution = 906609;
         assertEquals(solution, (new Problem4().solve()));
     }
+
+    @Test
+    void testSolution5() {
+        int solution = 232792560;
+        assertEquals(solution, (new Problem5().solve()));
+    }
 }
