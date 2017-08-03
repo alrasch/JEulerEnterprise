@@ -53,4 +53,10 @@ class Batch1Test {
         long solution = 23514624000L;
         assertEquals(solution, (new Problem8().solve()));
     }
+
+    @Test
+    void testSolution9() {
+        int solution = 31875000;
+        assertEquals(solution, (new Problem9().solve()));
+    }
 }
