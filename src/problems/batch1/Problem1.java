@@ -1,4 +1,4 @@
-package problems;
+package problems.batch1;
 
 /**
  * Problem: If we list all the natural numbers

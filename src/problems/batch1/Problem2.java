@@ -1,4 +1,4 @@
-package problems;
+package problems.batch1;
 
 import math.sequences.Fibonacci;
 

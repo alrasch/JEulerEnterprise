@@ -1,11 +1,11 @@
 package solution;
 
 import org.junit.jupiter.api.Test;
-import problems.*;
+import problems.batch1.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ProblemTest {
+class Batch1Test {
     @Test
     void testSolution1() {
         int solution = 233168;
