@@ -47,4 +47,10 @@ class ProblemTest {
         int solution = 104743;
         assertEquals(solution, (new Problem7().solve()));
     }
+
+    @Test
+    void testSolution8() {
+        long solution = 23514624000L;
+        assertEquals(solution, (new Problem8().solve()));
+    }
 }
