@@ -1,5 +1,7 @@
 package math.prime;
 
+import math.Division;
+
 import java.util.ArrayList;
 
 public class Prime {
@@ -11,12 +13,13 @@ public class Prime {
     }
 
     private void init() {
-        this.primes = new ArrayList<>();
-        this.primes.add(2L);
+        if (this.primes.size() == 0) {
+            this.primes.add(2L);
+        }
     }
 
-    boolean isPrime(long n) {
-        if (n == 1) {
+    public boolean isPrime(long n) {
+        if (n == 1L) {
             return false;
         }
 
@@ -24,26 +27,22 @@ public class Prime {
             return true;
         }
 
-        if (n % 2 == 0) {
-            return false;
+        Division d = new Division();
+
+        long smallestDivisor = d.getSmallestProperDivisor(n);
+
+        if (n == smallestDivisor) {
+            return true;
         }
 
-        for (int i = 3; i <= n / 2; i += 2) {
-            if (n % i == 0) {
-                return false;
-            }
-        }
-
-        return true;
+        return false;
     }
 
     /**
      * Generates the next prime in this.primes
      */
     private void generateNext() {
-        if (this.primes.size() == 0) {
-            this.primes.add(2L);
-        }
+        this.init();
 
         long last = this.primes.get(this.primes.size() - 1);
         if (last == 2) {
@@ -56,8 +55,16 @@ public class Prime {
         while (!isPrime(last)) {
             last += 2;
         }
-
         this.primes.add(last);
+    }
+
+    private boolean isPrimeHard(long n) {
+        for (int i = 3; i <= n / 2; i += 2) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public long getNthPrime(int n) {
@@ -66,15 +73,21 @@ public class Prime {
             this.generateNext();
         }
         return this.primes.get(this.primes.size()-1);
-    };
+    }
 
-    public ArrayList<Long> getPrimesUpTo(long n) {
+    private void generatePrimesUpTo(long n) {
         this.init();
         while (this.primes.get(this.primes.size() - 1) < n) {
             this.generateNext();
         }
-        this.primes.remove(this.primes.size() - 1);
+        if (this.primes.get(this.primes.size() - 1) > n) {
+            this.primes.remove(this.primes.size() - 1);
+        }
+    }
 
+    public ArrayList<Long> getPrimesUpTo(long n) {
+        this.init();
+        this.generatePrimesUpTo(n);
         return this.primes;
     }
 
@@ -107,6 +120,12 @@ public class Prime {
             return n;
         }
 
+        for (long prime : this.primes) {
+            if (n % prime == 0) {
+                return prime;
+            }
+        }
+
         long current = this.primes.get(this.primes.size() - 1);
 
         while (n % current != 0) {
@@ -121,18 +140,13 @@ public class Prime {
             throw new Exception("Tried to get prime factors of n < 2.");
         }
 
-        if (this.isPrime(n)) {
-            return n;
+        long[] divisors = (new Division()).getDivisors(n, true, false);
+        for (long div : divisors) {
+            if (this.isPrime(div)) {
+                return div;
+            }
         }
 
-        long smallestFactor = this.getSmallestPrimeFactor(n);
-
-        long largestFactor = n / smallestFactor;
-
-        while (!isPrime(largestFactor)) {
-            largestFactor = this.getLargestPrimeFactor(largestFactor);
-        }
-
-        return largestFactor;
+        return -1;
     }
 }
