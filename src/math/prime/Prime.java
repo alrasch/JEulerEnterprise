@@ -85,10 +85,10 @@ public class Prime {
         }
     }
 
-    public ArrayList<Long> getPrimesUpTo(long n) {
+    public long[] getPrimesUpTo(long n) {
         this.init();
         this.generatePrimesUpTo(n);
-        return this.primes;
+        return this.primes.stream().mapToLong(l -> l).toArray();
     }
 
     public long[] getUniquePrimeFactors(long n) throws Exception {
@@ -103,7 +103,7 @@ public class Prime {
             return primeFactors.stream().mapToLong(l -> l).toArray();
         }
 
-        primes = this.getPrimesUpTo(n / 2 + 1);
+        long[] primes = this.getPrimesUpTo(n / 2 + 1);
 
         for (long prime : primes) {
             if (n % prime == 0) {

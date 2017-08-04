@@ -2,8 +2,6 @@ package problems.batch1;
 
 import math.prime.Prime;
 
-import java.util.ArrayList;
-
 /**
  * 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
  *
@@ -12,7 +10,7 @@ import java.util.ArrayList;
 public class Problem5 {
     public int solve() {
         Prime prime = new Prime();
-        ArrayList<Long> primes = prime.getPrimesUpTo(20);
+        long[] primes = prime.getPrimesUpTo(20);
 
         int product = 1;
         for(long p : primes) {
